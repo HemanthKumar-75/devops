@@ -31,7 +31,7 @@ dnf list installed nginx
 if [ $? -ne 0 ]
 then
     echo "NGINX is not installed, going to install..."
-    dnf install NGINX -y
+    dnf install nginx -y
     if [ $? -ne 0 ]
     then
         echo "NGINX installation got failure... check it..."
