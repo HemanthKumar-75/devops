@@ -1,5 +1,5 @@
 #!/bin/bash
 
-id=$(id)
+id=$(id -u)
 
 echo "id details are : $id"
