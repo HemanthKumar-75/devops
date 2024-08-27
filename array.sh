@@ -8,4 +8,3 @@ echo "Third Fruit is : ${FRUITS[2]}"
 echo "Fourth Fruit is : ${FRUITS[3]}"
 
 ${FRUITS[@]:2}
-${FRUITS{1}:[@]}
