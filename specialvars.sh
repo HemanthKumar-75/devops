@@ -12,4 +12,5 @@ echo "Home directory : $HOME"
 
 echo "process ID of current script : $$"
 
+sleep 100 &
 echo "Process ID of last background command : $!"
