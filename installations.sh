@@ -8,4 +8,4 @@ then
     dnf list installed mysql
 else
     echo "please try to run with root previlages"
-    exit 1
+#    exit 1
