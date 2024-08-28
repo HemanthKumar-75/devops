@@ -11,17 +11,17 @@ N="\e[0m"
 #root user permission checking
 if [ $id -ne 0 ]
 then
-    echo -e " $B $R please try to run with root previlages $N $N"
+    echo -e " $R please try to run with root previlages $N"
     exit 1
 fi
 
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$B $R $2 is ... failed $N $N"
+        echo -e "$R $2 is ... failed $N"
         exit 1
     else
-        echo "$B $G $2 is ... success $N $N"
+        echo "$G $2 is ... success $N"
     fi
 }
 
@@ -30,20 +30,20 @@ dnf list installed mysql
 
 if [ $? -ne 0 ]
 then
-    echo "MYSQL is not installed, going to install..."
+    echo "$R MYSQL is not installed $N, going to install..."
     dnf install mysql -y
     VALIDATE $? "Installing MYSQL"
 else
-    echo -e "$B MYSQL is already installed. $N"
+    echo -e "$G MYSQL is already installed. $N"
 fi
 
 dnf list installed nginx
 
 if [ $? -ne 0 ]
 then
-    echo "NGINX is not installed, going to install..."
+    echo -e "$R NGINX is not installed $N, going to install..."
     dnf install nginx -y
     VALIDATE $? "Installing NGINX"
 else
-    echo -e "$B NGINX is already installed. $N"
+    echo -e "$G NGINX is already installed. $N"
 fi
