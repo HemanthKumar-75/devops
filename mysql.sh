@@ -51,7 +51,7 @@ else
 fi
 
 # password setting for the user in mysql
-mysql -h mysql.hemanthkumar.online -u root -pExpenseApp@1 -e 'showdatabases;' &>>LOG_FILE
+mysql -h db.hemanthkumar.online -u root -pExpenseApp@1 -e 'showdatabases;' &>>LOG_FILE
 
 if [ &? -ne 0 ]
 then
