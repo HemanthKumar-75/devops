@@ -44,11 +44,17 @@ dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo -e "$R MYSQL is not installed $N,$G going to install...$N" | tee -a $LOG_FILE
-    dnf install mysql -y
+    dnf install mysql-server -y &>>LOG_FILE
     VALIDATE $? "Installing MYSQL" | tee -a $LOG_FILE
 else
     echo -e "$G MYSQL is already installed. $N" | tee -a $LOG_FILE
 fi
+
+systemctl enable mysqld &>>$LOG_FILE
+VALIDATE $? "Enabled MySQL Server"
+
+systemctl start mysqld &>>$LOG_FILE
+VALIDATE $? "Started MySQL server"
 
 # password setting for the user in mysql
 mysql -h db.hemanthkumar.online -u root -pExpenseApp@1 -e 'showdatabases;' &>>LOG_FILE
