@@ -85,7 +85,7 @@ dnf install mysql -y &>>$LOG_FILE
 VALIDATE $? "Installing MySQL Client"
 
 #creating the schema and pushing into main DB
-mysql -h mysql.hemanthkumar.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
+mysql -h db.hemanthkumar.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
 VALIDATE $? "Schema loading"
 
 #reloading the services
