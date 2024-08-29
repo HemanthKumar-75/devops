@@ -78,7 +78,7 @@ VALIDATE $? "Extracting the files into application folder"
 
 #installing the requiried library files
 npm install &>>$LOG_FILE
-cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.service  &>>$LOG_FILE
+cp /home/ec2-user/devops/expense-project/backend.service /etc/systemd/system/backend.service  &>>$LOG_FILE
 
 #installing the application client
 dnf install mysql -y &>>$LOG_FILE
