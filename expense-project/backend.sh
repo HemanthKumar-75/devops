@@ -37,7 +37,7 @@ VALIDATE() {
 echo "Script started executing at : $(date)" | tee -a $LOG_FILE
 
 # diabling the existing application
-dnf modules disable nodejs -y &>>$LOG_FILE
+dnf module disable nodejs -y &>>$LOG_FILE
 VALIDATE $? "Disabled default Nodejs"
 
 #enabling the new version of application
