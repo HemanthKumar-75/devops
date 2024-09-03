@@ -11,3 +11,10 @@
       name: mysqld
       enabled: yes
       state: started
+  - name: installation of nodejs
+    ansible.builtin.dnf:
+      name: nodejs
+      state: absent
+    ansible.builtin.dnf:
+      name: nodejs:20
+      state: present
