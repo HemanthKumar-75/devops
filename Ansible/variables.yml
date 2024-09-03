@@ -12,6 +12,6 @@
       msg: "Hi this is {{Name}}. I'm learning the {{course}}"
   -name: print the information
     vars: 
-    course: "Ansible" #Task level variable
+      course: "Ansible" #Task level variable
     ansible.builtin.debug:
       msg: "Hi this is {{Name}}. I'm learning the {{course}}"
