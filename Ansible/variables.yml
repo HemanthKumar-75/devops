@@ -15,3 +15,11 @@
       course: "Ansible" #Task level variable
     ansible.builtin.debug:
       msg: "Hi this is {{Name}}. I'm learning the {{course}}"
+
+#1. command linie/arguments
+#2. task level
+#3. files
+#4. prompt
+#5. play level
+#6. inventory
+#7. role based
