@@ -1,6 +1,20 @@
 - name: PLAY-01
   hosts: web
   tasks:
-  - name: PLAY-01 TASK-01
+  - name: PLAY-01 TASK-01 # this play & Task names are in capital only (manditory) otherwise throw error
     ansible.builtin.debug:
       msg: "Hello Everyone, this is Hemanth. I'm running a new playbook."
+
+- name: PLAY-02
+  hosts: web
+  tasks:
+  - name: PLAY-02 TASK-01
+    ansible.builtin.debug:
+      msg: "This is the second play which I was running in the same playbook."
+
+- name: PLAY-03
+  hosts: web
+  tasks:
+  - name: PLAY-03 task-01
+    ansible.builtin.debug:
+      msg: "Good to see you all again."
