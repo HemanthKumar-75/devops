@@ -1,6 +1,9 @@
 - name: variables to print
   hosts: web
+  vars:
+    Name: "HemanthKumar"
+    course: "DevOps" 
   tasks:
   - name: print the information
     ansible.builtin.debug:
-      msg: "Hi this is Hemanth Kumar. I'm learning the DevOps"
+      msg: "Hi this is {{Name}}. I'm learning the {{course}}"
