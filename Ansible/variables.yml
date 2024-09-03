@@ -6,4 +6,7 @@
   tasks:
   - name: print the information
     ansible.builtin.debug:
+      msg: "Hi this is Hemanth_kumar. I'm learning the Devops"
+  - name: print the information
+    ansible.builtin.debug:
       msg: "Hi this is {{Name}}. I'm learning the {{course}}"
