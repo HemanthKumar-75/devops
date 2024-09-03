@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name: installation of Mysql
-    ansible.builtin.package:
+    ansible.builtin.dnf:
       name: mysql-server
       status: present
   - name: enable the services & start the service
