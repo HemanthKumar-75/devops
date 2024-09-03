@@ -15,6 +15,20 @@
     ansible.builtin.dnf:
       name: nodejs
       state: absent
+      enabled: no
     ansible.builtin.dnf:
       name: nodejs:20
+      enabled: yes
+    ansible.builtin.dnf:
+      name: nodejs
       state: present
+  - name: checking the user status
+    ansible.builtin.command: id expense
+    register: USER
+    ignore_errors: true
+  - name: print the user information
+    ansible.builtin.debug:
+      msg: "user info: {{USER}}"
+  -name: create user
+    ansible.builtin.command: useradd expense
+    when: USER.rc != 0
