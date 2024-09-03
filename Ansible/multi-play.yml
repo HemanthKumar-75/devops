@@ -2,5 +2,5 @@
   hosts: web
   tasks:
   - name: Play-01 Task-01
-    anisble.builtin.debug:
+    ansible.builtin.debug:
     msg: "Hello Everyone, this is Hemanth. I'm running a new playbook."
