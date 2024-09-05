@@ -1,6 +1,6 @@
 - name: checking the user details
-  hosts: local
-  connection: local
+  hosts: web
+  # connection: local
   tasks:
   - name: check the user is exist or not
     ansible.builtin.command: id supreme
