@@ -1,5 +1,5 @@
 - name: install of multiple Packages
-  hosts: local
+  hosts: web
   connection: local
   tasks:
   - name: Packages install
