@@ -1,6 +1,6 @@
 - name: information
   hosts: web
-  var:
+  vars:
     name: Supreme Kodem
     Age: 29
     place: yellapur
