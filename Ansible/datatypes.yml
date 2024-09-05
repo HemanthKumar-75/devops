@@ -1,5 +1,6 @@
 - name: information
   hosts: web
+  connection: local
   vars:
     name: Supreme Kodem
     Age: 29
