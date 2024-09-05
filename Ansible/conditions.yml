@@ -1,7 +1,7 @@
 - name: conditions in Ansible
   hosts: local
   connection: local
-  vars_prompt:
+  vars:
   - name: num
     prompt: please enter the number
     private: false
@@ -9,12 +9,12 @@
   - name: is given number is greaterthan 210
     ansible.builtin.debug:
       msg: given number {{num}} is greater than 210
-    when: num > 210
+    when: num | int > 210
   - name: is given number is less than 210
     ansible.builtin.debug:
       msg: given number {{num}} is less than 210
-    when: num < 210
-  # -name: is given number is equal to 210
-  #   ansible.builtin.debug:
-  #     msg: given number {{num}} is equal to 210
-  #   when: num == 210
+    when: num | int < 210
+  -name: is given number is equal to 210
+    ansible.builtin.debug:
+      msg: given number {{num}} is equal to 210
+    when: num | int == 210
