@@ -1,0 +1,13 @@
+- name: install of multiple Packages
+  hosts: local
+  connection: local
+  tasks:
+  - name: Packages install
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - ppostgresql16-server
+    - nginx
+    - mysql
+    - postman
