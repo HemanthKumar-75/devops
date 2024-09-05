@@ -1,7 +1,7 @@
 - name: conditions in Ansible
   hosts: local
   connection: local
-  vars:
+  vars_prompt:
   - name: num
     prompt: please enter the number
     private: false
