@@ -14,4 +14,4 @@
   
   - name: create the user
     ansible.builtin.command: useradd supreme
-  when: user_info_details.rc != 0
+    when: user_info_details.rc != 0
