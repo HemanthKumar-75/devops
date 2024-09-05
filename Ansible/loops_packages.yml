@@ -7,8 +7,8 @@
       name: "{{ item }}"
       state: present
     loop:
-    - postgresql16-server
+    - postgresql-server
     - nginx
     - mysql
-    - http
+    - httpd
     - java
