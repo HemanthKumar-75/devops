@@ -1,4 +1,4 @@
-- name: supreme information
+- name: information
   hosts: web
   var:
     name: Supreme Kodem
@@ -12,7 +12,7 @@
     - Rationcard
     - Driving License
     live: yes
-    vehicles:
+  vehicles:
     - Motor Bike
     - Car
     - Scooty
