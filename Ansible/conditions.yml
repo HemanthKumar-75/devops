@@ -14,7 +14,7 @@
     ansible.builtin.debug:
       msg: given number {{num}} is less than 210
       when: num < 210
-  -name: is given number is equal to 210
-    ansible.builtin.debug:
-      msg: given number {{num}} is equal to 210
-      when: num == 210
+  # -name: is given number is equal to 210
+  #   ansible.builtin.debug:
+  #     msg: given number {{num}} is equal to 210
+  #     when: num == 210
