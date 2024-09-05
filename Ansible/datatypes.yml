@@ -1,0 +1,24 @@
+- name: supreme information
+  hosts: web
+  var:
+    name: Supreme Kodem
+    Age: 29
+    place: yellapur
+    ID: 
+    - Aadhaar
+    - PAN
+    - VoterID
+    - Passport
+    - Rationcard
+    - Driving License
+    live: yes
+    vehicles:
+    - Motor Bike
+    - Car
+    - Scooty
+    - Van
+    - Auto
+  tasks:
+  - name: print the all information
+    ansible.builtin.debug:
+      msg: "Hi I'm {{ name }}, My Age is {{Age}}. I have my details are {{ID}} and I got the live details {{live}} I'm having the vehicles details are {{vehicles}}"
