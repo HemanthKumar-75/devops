@@ -1,0 +1,5 @@
+- name: installation and configuration of MYSQL
+  hosts: web
+  tasks:
+  - name:
+    ansible.builtin.debug:

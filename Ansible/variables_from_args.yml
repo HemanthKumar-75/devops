@@ -4,3 +4,5 @@
   - name: print the information from args
     ansible.builtin.debug:
       msg: "Hi This is {{NAME}}. I'm going to learn {{COURSE}}"
+
+      # variables_form_args.yml "NAME=Hemanth COURESE=SAP"
