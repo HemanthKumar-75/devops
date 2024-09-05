@@ -1,0 +1,17 @@
+- name: some advanced loops
+  hosts: local
+  connection: local
+  tasks:
+  - name: installing the list of packages
+    ansible.builtin.package:
+      name: "{{item.name}}"
+      state: "{{item.state}}"
+    loops:
+    - { name: 'mysql', state: 'absent' }
+    - { name: 'podman', state: 'present' }
+    - { name: 'nginx', state: 'absent' }
+    - { name: 'vlc', state: 'present' }
+    - { name: 'httpd', state: 'absent' }
+    - { name: 'mariadb', state: 'present' }
+    
+    
