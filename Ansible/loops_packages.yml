@@ -10,4 +10,5 @@
     - postgresql16-server
     - nginx
     - mysql
-    - postman
+    - http
+    - java
