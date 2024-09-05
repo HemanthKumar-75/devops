@@ -8,4 +8,5 @@
 
   - name: print the details of the user
     ansible.builtin.debug:
-      msg: "details are:  {{ user_info_details }}"
+      msg: 
+      - details are {{ user_info_details }}
