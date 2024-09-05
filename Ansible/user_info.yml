@@ -5,6 +5,7 @@
   - name: check the user is exist or not
     ansible.builtin.command: id supreme
     register: user_info_details
+    ignore_errors: true
 
   - name: print the details of the user
     ansible.builtin.debug:
