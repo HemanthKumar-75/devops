@@ -23,6 +23,6 @@
   - name: print the all information
     ansible.builtin.debug:
       msg: 
-      - "Hi I'm {{ name }}, My Age is {{Age}}."
-      - "I have my details are {{ID}} and I got the live details {{live}}." 
-      - "I'm having the vehicles details are {{vehicles}}"
+      - Hi I'm {{ name }}, My Age is {{Age}}.
+      - I have my details are {{ID}} and I got the live details {{live}}. 
+      - I'm having the vehicles details are {{vehicles}}.
