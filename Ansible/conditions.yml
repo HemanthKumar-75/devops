@@ -1,0 +1,12 @@
+- name: conditions in Ansible
+  hosts: local
+  connetion: local
+  vars:
+  - number: num
+    prompt: please enter the number
+    private: false
+  tasks:
+  - name: is given number is greaterthan 210
+    ansible.builtin.command:
+      msg: given number {{num}} is greater than 210
+    when: number > 210
