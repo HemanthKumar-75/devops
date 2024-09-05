@@ -6,7 +6,7 @@
     ansible.builtin.package:
       name: "{{item.name}}"
       state: "{{item.state}}"
-    loops:
+    loop:
     - { name: 'mysql', state: 'absent' }
     - { name: 'podman', state: 'present' }
     - { name: 'nginx', state: 'absent' }
