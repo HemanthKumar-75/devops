@@ -7,7 +7,7 @@
       name: "{{ item }}"
       state: present
     loop:
-    - ppostgresql16-server
+    - postgresql16-server
     - nginx
     - mysql
     - postman
