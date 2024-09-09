@@ -2,7 +2,8 @@
   hosts: local # 192.168.21.32
   connection: local
   # become: yes
-  u_name: HemantH KuMaR
+  vars:
+    u_name: HemantH KuMaR
   tasks:
   - name: convert the details to upper
     ansible.builtin.debug:
