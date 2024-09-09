@@ -7,7 +7,7 @@
   tasks:
   - name: default function/ filter
     ansible.builtin.debug:
-      msg: "name: {{catalyst | default("Ansible")}}"
+      msg: "name: {{catalyst | default('Ansible')}}"
   - name: convert the details to upper
     ansible.builtin.debug:
       msg: "name in upper: {{u_name | upper}}"
