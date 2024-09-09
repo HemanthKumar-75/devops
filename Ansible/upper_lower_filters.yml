@@ -2,8 +2,8 @@
   hosts: local # 192.168.21.32
   connection: local
   # become: yes
+  u_name: HemantH KuMaR
     tasks:
-    u_name: HemantH KuMaR
   - name: convert the details to upper
     ansible.builtin.debug:
       msg: "name in upper: {{u_name | upper}}"
