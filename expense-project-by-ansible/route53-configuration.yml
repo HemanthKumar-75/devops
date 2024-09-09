@@ -6,7 +6,7 @@
     type_of_instance: "t2.micro"
     security_group_id: "sg-0b8022285026f7d1e"
     images_id: "ami-09c813fb71547fc4f"
-    intances:
+    instances:
     - mysql
     - backend
     - frontend
