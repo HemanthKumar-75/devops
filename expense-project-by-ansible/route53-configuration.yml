@@ -26,7 +26,7 @@
   #   ansible.builtin.debug:
   #     msg: "{{ec2_instances}}"
 
-  - name: creating the records (domain mapping)
+  - name: creating the records (domain mapping for private IP's)
     amazon.aws.route53:
       state: present
       zone: "{{zone}}"
@@ -37,3 +37,16 @@
       wait: true
       overwrite: true
     loop: "{{ ec2_instances.results }}"
+
+  - name: creating the records (domain mapping for public IP)
+    amazon.aws.route53:
+      state: present
+      zone: "{{zone}}"
+      record: "{{zone}}"
+      type: A
+      ttl: 1
+      value: "{{item.instances[0].public_ip_address}}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2_instances.results }}"
+    when: ec2_instances.results == "frontend"
