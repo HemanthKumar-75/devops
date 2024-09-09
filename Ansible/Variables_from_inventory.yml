@@ -4,3 +4,6 @@
   - name:
     ansible.builtin.debug:
       msg: "Hi This is {{Name}}. I'm learning {{Course}}"
+
+
+      # ansible-playbook -i inventory.ini command.yml

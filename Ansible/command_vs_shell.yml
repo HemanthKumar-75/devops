@@ -1,0 +1,8 @@
+- name: commans vs shell
+  hosts: local
+  connection: local
+  tasks:
+  - name:
+    ansible.builtin.command: ls -lrt > /tmp/output.txt
+    - name:
+    ansible.builtin.shell: ls -lrt > /tmp/output.txt
