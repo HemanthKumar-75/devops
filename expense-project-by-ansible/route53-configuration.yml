@@ -1,0 +1,18 @@
+- name: route53 configuration
+  hosts: local
+  connection: local
+  vars:
+    VPC_ID: vpc-044c34d8dd538086d
+    type_of_instance: i-00a385da30babe8ce
+    security_group_id: sg-0b8022285026f7d1e
+    images_id: ami-09c813fb71547fc4f
+  tasks:
+  - name: AWS ec2 instance
+    amazon.aws.ec2_instance:
+      name: item
+      vpc_subnet_id: VPC_ID
+      instance_id: type_of_instance
+      security_group: security_group_id
+      image_id: images_id
+    loop: instances
+    register: ec2_instances
