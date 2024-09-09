@@ -19,4 +19,8 @@
       list: [1,2,3,4,5,4,3,2,1,21,23,32,34,45,32,23,34]
     ansible.builtin.debug:
       msg: "{{list | unique}}"
+  - name: minimum number
+    ansible.builtin.debug:
+      msg: "{{list | min}}"
+      
 
