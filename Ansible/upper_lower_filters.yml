@@ -8,4 +8,7 @@
   - name: convert the details to upper
     ansible.builtin.debug:
       msg: "name in upper: {{u_name | upper}}"
+  - name: convert the details to lower
+    ansible.builtin.debug:
+      msg: "name in upper: {{u_name | lower}}"
 
