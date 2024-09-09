@@ -23,5 +23,6 @@
   - name: minimum number
     ansible.builtin.debug:
       msg: "{{list | min}}"
-
-
+  - name: maximum number
+    ansible.builtin.debug:
+      msg: "{{list | max}}"
