@@ -3,7 +3,7 @@
   connection: local
   # become: yes
   u_name: HemantH KuMaR
-    tasks:
+  tasks:
   - name: convert the details to upper
     ansible.builtin.debug:
       msg: "name in upper: {{u_name | upper}}"
