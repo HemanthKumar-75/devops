@@ -2,10 +2,10 @@
   hosts: local
   connection: local
   vars:
-    VPC_ID: vpc-044c34d8dd538086d
-    type_of_instance: i-00a385da30babe8ce
-    security_group_id: sg-0b8022285026f7d1e
-    images_id: ami-09c813fb71547fc4f
+    VPC_ID: subnet-04765d0a904a216d3
+    type_of_instance: "t2.micro"
+    security_group_id: "sg-0b8022285026f7d1e"
+    images_id: "ami-09c813fb71547fc4f"
     intances:
     - mysql
     - backend
