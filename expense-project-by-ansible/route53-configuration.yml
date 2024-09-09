@@ -15,7 +15,7 @@
     amazon.aws.ec2_instance:
       name: "{{item}}"
       vpc_subnet_id: "{{VPC_ID}}"
-      instance_id: "{{type_of_instance}}"
+      instance_type: "{{type_of_instance}}"
       security_group: "{{security_group_id}}"
       image_id: "{{images_id}}"
     loop: "{{instances}}"
