@@ -1,0 +1,11 @@
+- name: configuration of backend 
+  hosts: backend
+  tasks:
+  - name: installation of nodejs
+    ansible.builtin.package:
+      name: nodejs:20
+      state: present
+    ansible.builtin.services:
+      name: backend
+      state: started
+      enabled: yes
