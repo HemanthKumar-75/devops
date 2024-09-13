@@ -1,11 +1,78 @@
 - name: configuration of backend 
   hosts: backend
+  become: yes
+  vars:
+    my_sql_password: ExpenseApp@1
+    host_details: mysql.hemanthkumar.online
   tasks:
+  - name: installing the pre-required softwares
+    ansible.bulitin.pip:
+      name:
+        - PyMySQL
+        - cryptography
+      executable: pip3.9
+
+  - name: disabling the nodejs default ones
+    ansible.builtin.command: dnf module disable nodejs -y
+
+  #- name: enabling of required level version of nodejs
+  #  ansible.bulitin.command: dnf module enable nodejs:20 -y
+  
   - name: installation of nodejs
     ansible.builtin.package:
-      name: nodejs:20
+      name: "{{item}}"
       state: present
+    loop:
+    - nodejs:20
+    - mysql
+  
+  - name: enable the services and start the services
     ansible.builtin.services:
       name: backend
       state: started
       enabled: yes
+  
+  - name: create expense user
+    ansible.builtin.user:
+      name: expense
+
+  - name: create the app directory
+    ansible.bulitin.file:
+      path: /app
+      state: directory
+  
+  - name: download the backend code
+    ansible.builtin.get_url:
+      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+      dest: /tmp/backend.zip
+
+  - name: extraction of code
+    ansible.bulitin.unarchive:
+      src: /tmp/backend.zip
+      dest: /app
+      remote_src: yes
+
+  - name: installing the dependencies
+    ansible.bulitin.command: npm install
+    args:
+      chdir: /app
+  
+  - name: copy backend services code
+    ansible.bulitin.copy:
+      src: backend.service
+      dest: /etc/systemd/system/backend.service
+
+  - name: import mysql data
+    community.mysql.mysql_db:
+      login_user: root
+      login_password: "{{my_sql_password}}"
+      login_host: "{{host_details}}"
+      target: /app/schema/backend.sql
+      name: all
+      state: import
+
+  - name: daemon reload
+    ansible.builtin.systemd_service:
+      daemon_reload: true
+      state: restarted
+      name: backend

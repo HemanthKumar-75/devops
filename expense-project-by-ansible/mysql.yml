@@ -1,13 +1,39 @@
 - name: Configuration of mysql server
   hosts: mysql
   become: yes
+  vars:
+    my_sql_password: ExpenseApp@1
+    host_details: mysql.hemanthkumar.online
   tasks:
+  - name: installing the pre-required softwares
+    ansible.bulitin.pip:
+      name:
+        - PyMySQL
+      executable: pip3.9
+
   - name: installation of mysql server
     ansible.builtin.package:
       name: mysql-server
       state: present
+
   - name: configuration of services
     ansible.builtin.service:
       name: mysqld
       state: started
       enabled: yes
+
+  - name: connect to mysql server
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: "{{my_sql_password}}"
+      login_host: "{{host_details}}"
+    ignore_errors: true
+    register: mysql_info
+
+  - name: print the details of mysql info
+    ansible.bulitin.debug:
+      msg: "{{mysql_info}}"
+
+  - name: setting the mysql_root password
+    ansible.bulitin.command: "mysql_secure_installation --set-root-pass {{my_sql_password}}"
+    when: mysql_info.failed is true
